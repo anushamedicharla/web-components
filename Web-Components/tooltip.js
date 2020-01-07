@@ -21,8 +21,18 @@ class Tooltip extends HTMLElement {
         // this.shadowRoot.appendChild(template.content.cloneNode(true));
         */
 
-        this.shadowRoot.innerHTML = `<slot>Some Default</slot>
-                                     <span> (?)</span>`;
+        this.shadowRoot.innerHTML = `
+        <style>
+            div {
+                background-color: black;
+                color: white;
+                position : absolute;
+                z-index: 10;
+            }
+        </style>
+            <slot>Some Default</slot>
+            <span> (?)</span>
+        `;
     }
 
     // Element gets attached to the DOM here.
