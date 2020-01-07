@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Web Components</title>
+    <script src="tooltip.js"></script>
+    <style>
+        div {
+            border: 2px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <!-- In order to have a fully reusable component, this template also needs to be in the JS file so that
+        we would only need to dump that JS file and use this component anywhere and not worry about separate 
+        template contents-->
+    <!-- <template id="tooltip-template">
+        /* Slot is all the content that is in between the opening and closing tags of our template
+            that gets inserted here. Slots can have a default value as well. */
+        <slot>Some Default</slot>
+        <span> (?)</span>
+    </template> -->
+    <p><uc-tooltip text="Web Components is a set of standards.">Web Components</uc-tooltip> are awesome!</p>
+    <uc-tooltip ></uc-tooltip>
+</body>
+</html>
