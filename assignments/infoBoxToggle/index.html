@@ -8,25 +8,8 @@
     <script src="infoBox.js"></script>
   </head>
   <body>
-    <button>Show</button>
-    
-    <script>
-      const button = document.querySelector('button');
-      const infoEl = document.querySelector('p');
-
-      let isHidden = true;
-
-      button.addEventListener('click', () => {
-        if (isHidden) {
-          infoEl.style.display = 'block';
-          button.textContent = 'Hide';
-          isHidden = false;
-        } else {
-          infoEl.style.display = 'none';
-          button.textContent = 'Show';
-          isHidden = true;
-        }
-      });
-    </script>
+    <uc-info-toggle>
+      This Works!
+    </uc-info-toggle>
   </body>
 </html>
