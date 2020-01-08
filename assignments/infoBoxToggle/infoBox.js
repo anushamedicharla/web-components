@@ -20,6 +20,16 @@ class InfoBoxToggle extends HTMLElement {
     }
 
     connectedCallback() {
+        /* We will access attribute of the custom element being rendered into the Real DOM .
+            Hence we write this here
+        */
+       if(this.hasAttribute('is-visible')) {
+           if(this.getAttribute('is-visible') === 'true') {
+            this._isHidden = false;
+            this._infoEl.style.display = 'block';
+            this._button.innerText = 'Hide';
+           }
+       }
         this._button.addEventListener('click', this._toggleInfoBox.bind(this));
     }
 
