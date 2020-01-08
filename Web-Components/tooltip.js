@@ -1,6 +1,7 @@
 class Tooltip extends HTMLElement {
     // Element gets created here but not attached to DOM
     constructor() {
+        // Super is important here to use all the constructor contents of the extended HTMLELEMENT.
         super();
         // Naming convention to replicate the behaviour of a private member of this class.
         // this._tooltipContainer;
