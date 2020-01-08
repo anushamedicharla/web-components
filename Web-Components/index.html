@@ -8,9 +8,30 @@
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
     <style>
-        div {
-            border: 2px solid orange;
+        /* This selects the root element of the document. Typically it is the html element */
+        :root {
+            /* We are setting this variable here so that we can use it in styling elements in our shadow DOM */
+            --color-primary: #a7ccc0;
         }
+
+        /* div {
+            border: 2px solid orange;
+        } */
+
+        /* .highlight {
+            background: #f7d28e;
+            border-bottom: 1px solid blue;
+            } 
+        */
+
+        /* We can style directly all our custom elements. */
+        /* uc-tooltip {
+            border: 1px solid blue;
+        } */
+
+        /* uc-tooltip.important {
+            background: green;
+        } */
     </style>
 </head>
 <body>
@@ -19,11 +40,23 @@
         template contents-->
     <!-- <template id="tooltip-template">
         /* Slot is all the content that is in between the opening and closing tags of our template
-            that gets inserted here. Slots can have a default value as well. */
+            that gets inserted here. Slots can have a default value as well. 
+            With Slots, the content in it does not get really pulled into the Shadow DOM from the real DOM.
+            it still remains a sibling of the shadow DOM. It only remains the part of the real DOM.
+            We can see this in the developer tools.
+            */
         <slot>Some Default</slot>
         <span> (?)</span>
     </template> -->
-    <p><uc-tooltip text="Web Components is a set of standards.">Web Components</uc-tooltip> are awesome!</p>
+    <p class="hello">
+        <uc-tooltip class="important" text="Web Components is a set of standards.">
+            <!-- Here the styling of the real DOM is applied and not of the Shadow DOM as even though this content
+            is slotted, it still only remains a part of the real DOM. In order to style the slotted content in the 
+            shadow DOM, we need to use ::slotted {} selector in the shadow DOM styling. -->
+            <span class="highlight">Web Components</span>
+        </uc-tooltip> 
+        are awesome!
+    </p>
     <uc-tooltip ></uc-tooltip>
     <br>
     <a is="uc-confirm-link" href="http://google.com" target="blank">Google</a>
